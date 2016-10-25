@@ -1,0 +1,43 @@
+who的实现是通过读取utmp这个文件来获取当前登录信息的。
+
+utmp包含在utmp.h中
+
+通过man 5 utmp可以查看struct utmp的内容。
+
+用到的函数有：
+open：
+#include <fcntl.h>
+原型
+int fd=open(char *name, int how)
+参数
+name:file name
+how:  O_RDONLY, O_WRONLY, O_RDWR
+
+返回值：遇到错误  -1
+		成功      int fd （文件描述符）
+
+
+read：
+#include <unistd.h>
+原型
+ssize_t numread=read(int fd, void* buf, size_t qty)
+参数
+fd：文件描述符
+buf：用来存放数据的目的缓冲区
+qty：要读取的字节数
+返回值：遇到错误  -1
+		成功      numread
+
+
+close：
+#include<unistd.h>
+原型
+int result=close(int fd)
+参数
+fd：文件描述符
+返回值：遇到错误   -1
+		成功       0
+
+
+ctime：将表示时间的整数值转换成人们日常所使用的时间格式。
+

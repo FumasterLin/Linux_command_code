@@ -38,9 +38,9 @@ void show_info(struct utmp *utbufp)
 {
 	if(utbufp->ut_type != USER_PROCESS)
 		return;
-	printf("%-8.8s", utbufp->ut_name);// the logname
+	printf("%-11.11s", utbufp->ut_user);// the logname
 	printf(" ");
-	printf("%-8.8s", utbufp->ut_line);// the tty
+	printf("%-11.11s", utbufp->ut_line);// the tty
 	printf(" ");
 //	printf("% 10ld", utbufp->ut_time);// login time
 //	printf(" ");
