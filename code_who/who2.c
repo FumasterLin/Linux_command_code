@@ -36,7 +36,7 @@ int main()
  */
 void show_info(struct utmp *utbufp)
 {
-	if(utbufp->ut_type != USER_PROCESS)
+	if(utbufp->ut_type != USER_PROCESS)// remove blamk users
 		return;
 	printf("%-11.11s", utbufp->ut_user);// the logname
 	printf(" ");
